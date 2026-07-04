@@ -50,8 +50,8 @@
             border-bottom: 4px solid #000000;
         }
 
-        /* Hover-Effekte für die AIDA-Karten */
-        .aida-card:hover {
+        /* Hover-Effekte für die Karten */
+        .aida-card:hover, .pr-card:hover, .sponsoring-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
         }
@@ -109,27 +109,25 @@
         
         <h2 class="text-2xl font-black text-brand-black mb-6 uppercase tracking-tight">Die 4 Instrumente im Überblick</h2>
         
-        <!-- Tab Buttons (Including Disabled States) -->
+        <!-- Tab Buttons (All 4 tools unlocked!) -->
         <div class="flex flex-wrap gap-2 border-b-2 border-slate-200 mb-8 pb-px">
-            <!-- Active Tabs -->
             <button onclick="switchTab('tab-werbung')" id="btn-tab-werbung" class="tab-btn active bg-slate-100 text-slate-600 hover:bg-slate-200 px-6 py-3 rounded-t-lg font-black uppercase text-sm tracking-wider transition-colors duration-200 flex items-center">
                 <i class="fa-solid fa-tv mr-2"></i> Werbung
             </button>
             <button onclick="switchTab('tab-sales')" id="btn-tab-sales" class="tab-btn bg-slate-100 text-slate-600 hover:bg-slate-200 px-6 py-3 rounded-t-lg font-black uppercase text-sm tracking-wider transition-colors duration-200 flex items-center">
                 <i class="fa-solid fa-tags mr-2"></i> Verkaufsförderung
             </button>
-            
-            <!-- Disabled Tabs (Visual Cue for students that there is more, but locked) -->
-            <div class="px-6 py-3 rounded-t-lg bg-slate-50 text-slate-300 border-b-2 border-transparent cursor-not-allowed flex items-center font-bold text-sm select-none">
+            <button onclick="switchTab('tab-pr')" id="btn-tab-pr" class="tab-btn bg-slate-100 text-slate-600 hover:bg-slate-200 px-6 py-3 rounded-t-lg font-black uppercase text-sm tracking-wider transition-colors duration-200 flex items-center">
                 <i class="fa-solid fa-newspaper mr-2"></i> Public Relations
-                <span class="ml-2 text-[8px] bg-slate-200 text-slate-400 px-1.5 py-0.5 rounded uppercase tracking-widest"><i class="fa-solid fa-lock mr-1"></i> Gesperrt</span>
-            </div>
-            <div class="px-6 py-3 rounded-t-lg bg-slate-50 text-slate-300 border-b-2 border-transparent cursor-not-allowed flex items-center font-bold text-sm select-none">
+            </button>
+            <button onclick="switchTab('tab-sponsoring')" id="btn-tab-sponsoring" class="tab-btn bg-slate-100 text-slate-600 hover:bg-slate-200 px-6 py-3 rounded-t-lg font-black uppercase text-sm tracking-wider transition-colors duration-200 flex items-center">
                 <i class="fa-solid fa-handshake mr-2"></i> Sponsoring
-                <span class="ml-2 text-[8px] bg-slate-200 text-slate-400 px-1.5 py-0.5 rounded uppercase tracking-widest"><i class="fa-solid fa-lock mr-1"></i> Gesperrt</span>
-            </div>
+            </button>
         </div>
 
+        <!-- ========================================== -->
+        <!-- TAB 1: WERBUNG (Unverändert)               -->
+        <!-- ========================================== -->
         <div id="tab-werbung" class="tab-content active bg-white p-8 rounded-2xl shadow-sm border border-slate-200">
             <div class="flex flex-col lg:flex-row gap-10">
                 <div class="lg:w-1/2 space-y-6">
@@ -157,24 +155,20 @@
                     </div>
                 </div>
                 
-                <!-- Das AIDA-Modell (Das "Wie" der strategischen Planung) -->
                 <div class="lg:w-1/2">
                     <h4 class="font-black text-brand-black mb-4 uppercase tracking-wider border-b-2 border-brand-accent inline-block pb-1">Strategische Planung: Das AIDA-Modell</h4>
                     <p class="text-sm text-slate-500 mb-6">Wenn Sie eine Werbemaßnahme konzipieren, müssen Sie inhaltlich definieren, wie Ihre Botschaft diese vier psychologischen Stufen meistert.</p>
                     
                     <div class="space-y-3">
-                        <!-- Attention -->
                         <div class="aida-card bg-white border border-slate-200 p-4 rounded-xl flex items-start gap-4 transition-all duration-300 relative overflow-hidden">
                             <div class="w-12 h-12 bg-brand-black text-brand-accent rounded-lg flex items-center justify-center font-black text-2xl shrink-0 z-10">A</div>
                             <div class="z-10">
                                 <h5 class="font-bold text-slate-800">Attention (Aufmerksamkeit)</h5>
                                 <p class="text-xs text-slate-600 mt-1"><strong>Der Erstkontakt:</strong> Mit welchem inhaltlichen "Aufhänger" (Hook) und in welchem Medium reißen wir die Zielgruppe aus ihrem Alltag?</p>
                             </div>
-                            <!-- Background Letter -->
                             <div class="absolute -right-4 -bottom-6 text-slate-100 font-black text-8xl z-0 select-none pointer-events-none">A</div>
                         </div>
 
-                        <!-- Interest -->
                         <div class="aida-card bg-white border border-slate-200 p-4 rounded-xl flex items-start gap-4 transition-all duration-300 relative overflow-hidden">
                             <div class="w-12 h-12 bg-slate-800 text-white rounded-lg flex items-center justify-center font-black text-2xl shrink-0 z-10">I</div>
                             <div class="z-10">
@@ -184,7 +178,6 @@
                             <div class="absolute -right-4 -bottom-6 text-slate-100 font-black text-8xl z-0 select-none pointer-events-none">I</div>
                         </div>
 
-                        <!-- Desire -->
                         <div class="aida-card bg-white border border-slate-200 p-4 rounded-xl flex items-start gap-4 transition-all duration-300 relative overflow-hidden">
                             <div class="w-12 h-12 bg-slate-600 text-white rounded-lg flex items-center justify-center font-black text-2xl shrink-0 z-10">D</div>
                             <div class="z-10">
@@ -194,7 +187,6 @@
                             <div class="absolute -right-4 -bottom-6 text-slate-100 font-black text-8xl z-0 select-none pointer-events-none">D</div>
                         </div>
 
-                        <!-- Action -->
                         <div class="aida-card bg-brand-light border-2 border-brand-accent p-4 rounded-xl flex items-start gap-4 transition-all duration-300 relative overflow-hidden">
                             <div class="w-12 h-12 bg-brand-accent text-brand-black rounded-lg flex items-center justify-center font-black text-2xl shrink-0 z-10">A</div>
                             <div class="z-10">
@@ -208,6 +200,9 @@
             </div>
         </div>
 
+        <!-- ========================================== -->
+        <!-- TAB 2: VERKAUFSFÖRDERUNG (Unverändert)      -->
+        <!-- ========================================== -->
         <div id="tab-sales" class="tab-content bg-white p-8 rounded-2xl shadow-sm border border-slate-200">
             <div class="flex flex-col lg:flex-row gap-10">
                 <div class="lg:w-1/2 space-y-6">
@@ -250,7 +245,6 @@
                     </div>
                 </div>
                 
-                <!-- Der Werkzeugkasten (Blueprint für die SuS) -->
                 <div class="lg:w-1/2">
                     <div class="bg-brand-black text-white p-8 rounded-2xl shadow-xl h-full flex flex-col">
                         <div class="flex items-center gap-3 mb-6">
@@ -262,7 +256,6 @@
                         </p>
                         
                         <div class="space-y-4 flex-1">
-                            <!-- Säule 1 -->
                             <div class="bg-slate-800/50 border border-slate-700 p-4 rounded-xl">
                                 <h5 class="text-brand-accent font-bold text-sm uppercase tracking-wider mb-1">1. Der Aufhänger (Das "Warum jetzt?")</h5>
                                 <p class="text-xs text-slate-300">
@@ -270,7 +263,6 @@
                                 </p>
                             </div>
                             
-                            <!-- Säule 2 -->
                             <div class="bg-slate-800/50 border border-slate-700 p-4 rounded-xl">
                                 <h5 class="text-brand-accent font-bold text-sm uppercase tracking-wider mb-1">2. Der konkrete Anreiz (Das "Was bekomme ich?")</h5>
                                 <p class="text-xs text-slate-300">
@@ -278,11 +270,158 @@
                                 </p>
                             </div>
                             
-                            <!-- Säule 3 -->
                             <div class="bg-slate-800/50 border border-slate-700 p-4 rounded-xl">
                                 <h5 class="text-brand-accent font-bold text-sm uppercase tracking-wider mb-1">3. Die Limitierung (Der psychologische Druck)</h5>
                                 <p class="text-xs text-slate-300">
                                     Ohne Verknappung keine Handlung. Die Aktion MUSS begrenzt sein. Entweder zeitlich ("Nur gültig dieses Wochenende") oder mengenmäßig ("Die ersten 50 Anmeldungen").
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ========================================== -->
+        <!-- TAB 3: PUBLIC RELATIONS (NEU & AKTIV)      -->
+        <!-- ========================================== -->
+        <div id="tab-pr" class="tab-content bg-white p-8 rounded-2xl shadow-sm border border-slate-200">
+            <div class="flex flex-col lg:flex-row gap-10">
+                <div class="lg:w-1/2 space-y-6">
+                    <div>
+                        <h3 class="text-3xl font-black text-brand-black mb-2 uppercase tracking-tight">Public Relations</h3>
+                        <p class="text-slate-400 font-mono text-sm mb-4">Deutsch: Öffentlichkeitsarbeit</p>
+                        <p class="text-slate-700 text-base leading-relaxed">
+                            PR ist das systematische und langfristige Management der Beziehung zwischen der Verwaltung und der Öffentlichkeit. Im Gegensatz zu Werbung geht es hier <strong>nicht um direkte Absatzsteigerung</strong>, sondern um den Aufbau von <strong>Vertrauen, Glaubwürdigkeit und Transparenz</strong>.
+                        </p>
+                    </div>
+                    
+                    <div class="bg-brand-light p-5 rounded-xl border border-slate-100 shadow-inner">
+                        <h4 class="font-bold text-xs uppercase tracking-widest text-brand-accent mb-2 bg-brand-black inline-block px-2 py-1 rounded">Die Leitfrage der PR</h4>
+                        <p class="font-black text-xl text-brand-black italic">„Schenke unserer Behörde dein Vertrauen, weil wir transparent und im Dienste der Gemeinschaft handeln!“</p>
+                    </div>
+
+                    <div>
+                        <h4 class="font-bold text-sm text-brand-black mb-3 uppercase tracking-wider">Typische PR-Instrumente (Auswahl)</h4>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="bg-white border border-slate-200 text-slate-600 px-3 py-1.5 rounded-lg text-sm shadow-sm"><i class="fa-solid fa-microphone text-brand-accent mr-1"></i> Pressemitteilungen</span>
+                            <span class="bg-white border border-slate-200 text-slate-600 px-3 py-1.5 rounded-lg text-sm shadow-sm"><i class="fa-solid fa-users text-brand-accent mr-1"></i> Bürgerversammlungen</span>
+                            <span class="bg-white border border-slate-200 text-slate-600 px-3 py-1.5 rounded-lg text-sm shadow-sm"><i class="fa-solid fa-house-chimney-window text-brand-accent mr-1"></i> Tag der offenen Tür</span>
+                            <span class="bg-white border border-slate-200 text-slate-600 px-3 py-1.5 rounded-lg text-sm shadow-sm"><i class="fa-solid fa-circle-info text-brand-accent mr-1"></i> Informationsbroschüren</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- G-B-T-Formel für die Fehlerjagd -->
+                <div class="lg:w-1/2">
+                    <h4 class="font-black text-brand-black mb-4 uppercase tracking-wider border-b-2 border-brand-accent inline-block pb-1">Das Kontroll-Raster: Die G-B-T-Formel</h4>
+                    <p class="text-sm text-slate-500 mb-6">Kommunale Pressemitteilungen dürfen niemals wie bezahlte Reklame klingen. Nutzt dieses Raster, um fehlerhafte PR-Entwürfe kritisch zu prüfen:</p>
+                    
+                    <div class="space-y-3">
+                        <!-- Glaubwürdigkeit -->
+                        <div class="pr-card bg-white border border-slate-200 p-4 rounded-xl flex items-start gap-4 transition-all duration-300 relative overflow-hidden">
+                            <div class="w-12 h-12 bg-brand-black text-brand-accent rounded-lg flex items-center justify-center font-black text-2xl shrink-0 z-10">G</div>
+                            <div class="z-10">
+                                <h5 class="font-bold text-slate-800">Glaubwürdigkeit</h5>
+                                <p class="text-xs text-slate-600 mt-1"><strong>Kein Werbe-Hype:</strong> Sachliche Informationen stehen im Vordergrund. Übertreibungen („Die geilste Rutsche der Welt!“) zerstören das Vertrauen in die Verwaltung.</p>
+                            </div>
+                            <div class="absolute -right-4 -bottom-6 text-slate-100 font-black text-8xl z-0 select-none pointer-events-none">G</div>
+                        </div>
+
+                        <!-- Bürgernähe -->
+                        <div class="pr-card bg-white border border-slate-200 p-4 rounded-xl flex items-start gap-4 transition-all duration-300 relative overflow-hidden">
+                            <div class="w-12 h-12 bg-slate-800 text-white rounded-lg flex items-center justify-center font-black text-2xl shrink-0 z-10">B</div>
+                            <div class="z-10">
+                                <h5 class="font-bold text-slate-800">Bürgernähe</h5>
+                                <p class="text-xs text-slate-600 mt-1"><strong>Weg vom Amtsdeutsch:</strong> Sätze müssen verständlich, wertschätzend und nahbar sein. Arrogante Formulierungen oder steife Gesetzestexte schrecken Bürger ab.</p>
+                            </div>
+                            <div class="absolute -right-4 -bottom-6 text-slate-100 font-black text-8xl z-0 select-none pointer-events-none">B</div>
+                        </div>
+
+                        <!-- Transparenz -->
+                        <div class="pr-card bg-brand-light border-2 border-brand-accent p-4 rounded-xl flex items-start gap-4 transition-all duration-300 relative overflow-hidden">
+                            <div class="w-12 h-12 bg-brand-accent text-brand-black rounded-lg flex items-center justify-center font-black text-2xl shrink-0 z-10">T</div>
+                            <div class="z-10">
+                                <h5 class="font-bold text-brand-black">Transparenz</h5>
+                                <p class="text-xs text-slate-700 mt-1"><strong>Nichts vertuschen:</strong> Kritische Themen (wie Preiserhöhungen oder Verzögerungen) müssen ehrlich erklärt werden, statt sie werblich schönzureden.</p>
+                            </div>
+                            <div class="absolute -right-4 -bottom-6 text-white font-black text-8xl z-0 select-none pointer-events-none">T</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ========================================== -->
+        <!-- TAB 4: SPONSORING (NEU & AKTIV)            -->
+        <!-- ========================================== -->
+        <div id="tab-sponsoring" class="tab-content bg-white p-8 rounded-2xl shadow-sm border border-slate-200">
+            <div class="flex flex-col lg:flex-row gap-10">
+                <div class="lg:w-1/2 space-y-6">
+                    <div>
+                        <h3 class="text-3xl font-black text-brand-black mb-2 uppercase tracking-tight">Sponsoring</h3>
+                        <p class="text-slate-400 font-mono text-sm mb-4">Deutsch: Kommunale Partnerschaften</p>
+                        <p class="text-slate-700 text-base leading-relaxed">
+                            Sponsoring basiert auf dem Prinzip von <strong>Leistung und Gegenleistung</strong> (Geschäft auf Gegenseitigkeit). Ein Sponsor stellt der Gemeinde Finanz-, Sach- oder Dienstleistungen zur Verfügung, während die Gemeinde dem Sponsor Werbeflächen und einen positiven <strong>Image-Transfer</strong> bietet.
+                        </p>
+                    </div>
+                    
+                    <div class="bg-brand-light p-5 rounded-xl border border-slate-100 shadow-inner">
+                        <h4 class="font-bold text-xs uppercase tracking-widest text-brand-black mb-2 bg-brand-accent inline-block px-2 py-1 rounded">Die Leitfrage des Sponsorings</h4>
+                        <p class="font-black text-xl text-brand-black italic">„Wir finanzieren dieses Projekt mit, um unsere Verbundenheit zur Region zu zeigen und unser Image zu stärken!“</p>
+                    </div>
+
+                    <div>
+                        <h4 class="font-bold text-sm text-brand-black mb-3 uppercase tracking-wider">Unterscheidungsmerkmale zu Spenden</h4>
+                        <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 text-xs text-slate-600 space-y-2">
+                            <p><strong>Sponsoring (Gegenseitigkeit):</strong> Es besteht ein vertraglicher Anspruch auf eine konkrete Gegenleistung (z.B. Bandenwerbung, Nennung in Flyern).</p>
+                            <p><strong>Spende (Freigiebigkeit):</strong> Reine Förderung ohne Gegenleistung. Es besteht kein geschäftlicher Nutzenfokus für den Spender.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- I-K-N-Check für die Fehlerjagd -->
+                <div class="lg:w-1/2">
+                    <div class="bg-brand-black text-white p-8 rounded-2xl shadow-xl h-full flex flex-col">
+                        <div class="flex items-center gap-3 mb-6">
+                            <i class="fa-solid fa-gavel text-brand-accent text-2xl"></i>
+                            <h4 class="font-black text-xl uppercase tracking-wider">Der Sponsoring-Kodex: I-K-N-Check</h4>
+                        </div>
+                        <p class="text-sm text-slate-400 mb-6">
+                            Als Gemeinde dürfen wir nicht jede Kooperation eingehen. Partnerschaften müssen ethischen Grundsätzen genügen. Prüft Entwürfe anhand des <strong>I-K-N-Checks</strong> auf Fehler:
+                        </p>
+                        
+                        <div class="space-y-4 flex-1">
+                            <!-- Image-Fit -->
+                            <div class="sponsoring-card bg-slate-800/50 border border-slate-700 p-4 rounded-xl transition-all duration-300">
+                                <h5 class="text-brand-accent font-bold text-sm uppercase tracking-wider mb-1 flex items-center gap-2">
+                                    <span class="w-6 h-6 rounded bg-brand-accent text-brand-black flex items-center justify-center font-black text-xs">I</span>
+                                    Image-Fit
+                                </h5>
+                                <p class="text-xs text-slate-300">
+                                    Der Sponsor und sein Produkt müssen zum Geist der geförderten Einrichtung passen. (Beispiel: Ein „Gesundheitsbad“ darf nicht von Fast-Food-Ketten oder Alkoholherstellern gesponsert werden).
+                                </p>
+                            </div>
+                            
+                            <!-- Kodex-Konformität -->
+                            <div class="sponsoring-card bg-slate-800/50 border border-slate-700 p-4 rounded-xl transition-all duration-300">
+                                <h5 class="text-brand-accent font-bold text-sm uppercase tracking-wider mb-1 flex items-center gap-2">
+                                    <span class="w-6 h-6 rounded bg-brand-accent text-brand-black flex items-center justify-center font-black text-xs">K</span>
+                                    Konformität
+                                </h5>
+                                <p class="text-xs text-slate-300">
+                                    Die Neutralitätspflicht der Verwaltung muss gewahrt bleiben. Der Sponsor darf keinerlei politischen Einfluss auf Entscheidungen der Behörde nehmen oder exklusive Vorbehalte einfordern (Einhaltung des Sponsoring-Kodex).
+                                </p>
+                            </div>
+                            
+                            <!-- Nutzen-Transparenz -->
+                            <div class="sponsoring-card bg-slate-800/50 border border-slate-700 p-4 rounded-xl transition-all duration-300">
+                                <h5 class="text-brand-accent font-bold text-sm uppercase tracking-wider mb-1 flex items-center gap-2">
+                                    <span class="w-6 h-6 rounded bg-brand-accent text-brand-black flex items-center justify-center font-black text-xs">N</span>
+                                    Nutzen
+                                </h5>
+                                <p class="text-xs text-slate-300">
+                                    Leistung und Gegenleistung müssen in einem ausgewogenen kaufmännischen Verhältnis stehen. Der Sponsoring-Vertrag muss offenlegen, welchen Nutzen die Steuerzahler und welchen der Sponsor hat.
                                 </p>
                             </div>
                         </div>
@@ -304,7 +443,7 @@
     </footer>
 
     <script>
-        // JavaScript für die Tab-Steuerung
+        // JavaScript für die Tab-Steuerung aller vier Tabs
         function switchTab(tabId) {
             // 1. Alle Inhalte ausblenden
             const contents = document.querySelectorAll('.tab-content');
